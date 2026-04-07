@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMT Biology 2026 - Підготовка до НМТ з біології</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-light: #10b981;
+            --primary-dark: #047857;
+            --accent: #14b8a6;
+            --accent-light: #5eead4;
+            --coral: #f97316;
+            --coral-light: #fb923c;
+            --bg-light: #f0fdf4;
+            --bg-mint: #ecfdf5;
+            --text-dark: #064e3b;
+            --text-light: #6b7280;
+            --success: #10b981;
+            --error: #ef4444;
+            --warning: #f59e0b;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 20px rgba(20, 184, 166, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #d1fae5 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--bg-mint);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out reverse;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .countdown {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            display: inline-flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .countdown-item {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-item .number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .countdown-item .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Open Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--coral);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--coral-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .btn-success:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border-color: var(--accent-light);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            flex-wrap: wrap;
+        }
+
+        .card-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: var(--bg-mint);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--bg-mint);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .progress-header h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .progress-bar-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        /* Module Sections */
+        .module-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .module-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-mint) 0%, var(--white) 100%);
+            border-radius: 20px;
+            border: 2px solid var(--accent-light);
+        }
+
+        .module-header h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .topic-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .topic-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-header .icon {
+            font-size: 2.5rem;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.3;
+        }
+
+        .topic-content {
+            padding: 1.5rem;
+        }
+
+        .subtopic-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .subtopic-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .subtopic-list li:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+
+        .subtopic-list li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .topic-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .topic-actions .btn {
+            flex: 1;
+            justify-content: center;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        /* Test Interface */
+        .test-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .test-header {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 90px;
+            z-index: 100;
+            border: 2px solid var(--accent-light);
+        }
+
+        .test-timer {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-mint);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+        }
+
+        .test-timer.warning {
+            color: var(--error);
+            background: #fee2e2;
+            animation: pulse 1s infinite;
+        }
+
+        .test-timer i {
+            color: var(--coral);
+        }
+
+        .test-progress {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .test-progress small {
+            color: var(--text-light);
+            display: block;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .question-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: none;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .question-card.active {
+            display: block;
+            animation: slideIn 0.4s ease;
+            border-color: var(--accent-light);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-type {
+            display: inline-block;
+            background: var(--bg-mint);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .question-image {
+            max-width: 100%;
+            border-radius: 15px;
+            margin: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            padding: 1.25rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+        }
+
+        .option:hover {
+            border-color: var(--accent);
+            background: var(--bg-mint);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: #d1fae5;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        .option.correct {
+            border-color: var(--success);
+            background: #d1fae5;
+        }
+
+        .option.incorrect {
+            border-color: var(--error);
+            background: #fee2e2;
+        }
+
+        .option-letter {
+            width: 40px;
+            height: 40px;
+            background: #e5e7eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--text-dark);
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .option.selected .option-letter {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .option.correct .option-letter {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .option.incorrect .option-letter {
+            background: var(--error);
+            color: var(--white);
+        }
+
+        .test-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Matching Task */
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .matching-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .matching-item {
+            background: var(--bg-mint);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .matching-item:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .matching-item.selected {
+            border-color: var(--primary);
+            background: #d1fae5;
+        }
+
+        .matching-item.matched {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+
+        /* Three Groups Task */
+        .three-groups-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .group-column {
+            background: var(--bg-mint);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+        }
+
+        .group-column h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .group-option {
+            background: var(--white);
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .group-option:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .group-option.selected {
+            border-color: var(--primary);
+            background: #d1fae5;
+        }
+
+        /* Results */
+        .results-container {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .score-circle {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: conic-gradient(var(--success) calc(var(--score) * 1%), #e5e7eb 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .score-circle::before {
+            content: '';
+            width: 180px;
+            height: 180px;
+            background: var(--white);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .score-text {
+            position: relative;
+            z-index: 1;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .score-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .score-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .score-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .score-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .score-card h4 {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .score-card .value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Genetics Calculator */
+        .genetics-calculator {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border: 2px solid var(--accent-light);
+        }
+
+        .genetics-calculator h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        .punnett-square {
+            display: grid;
+            grid-template-columns: auto repeat(2, 1fr);
+            gap: 0.5rem;
+            margin: 2rem 0;
+            max-width: 400px;
+        }
+
+        .punnett-cell {
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 600;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .punnett-header {
+            background: var(--primary);
+            color: white;
+        }
+
+        .punnett-gamete {
+            background: var(--accent);
+            color: white;
+        }
+
+        .punnett-result {
+            background: var(--bg-mint);
+            border: 2px solid var(--accent-light);
+        }
+
+        /* Tips Section */
+        .tips-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tip-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-light);
+        }
+
+        .tip-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+        }
+
+        .tip-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .tip-content p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-content ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .tip-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .tip-content strong {
+            color: var(--primary);
+        }
+
+        /* Profile */
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border: 2px solid var(--accent-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--coral));
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3.5rem;
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.3);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: var(--bg-mint);
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .stat-box:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .achievement {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            opacity: 0.4;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .achievement.unlocked {
+            opacity: 1;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-color: var(--coral);
+            animation: pulse 2s infinite;
+        }
+
+        .achievement i {
+            font-size: 2.5rem;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+            font-size: 1.2rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            z-index: 9999;
+            animation: slideUp 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                border-top: 2px solid var(--accent);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .countdown-item .number {
+                font-size: 2rem;
+            }
+
+            .test-header {
+                position: relative;
+                top: 0;
+            }
+
+            .tip-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .test-navigation {
+                flex-direction: column;
+            }
+
+            .matching-container,
+            .three-groups-container {
+                grid-template-columns: 1fr;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .explanation {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            display: none;
+        }
+
+        .explanation.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .explanation strong {
+            color: var(--primary);
+        }
+
+        /* Interactive Elements */
+        .interactive-diagram {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .diagram-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .diagram-part {
+            fill: var(--accent);
+            stroke: var(--primary);
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .diagram-part:hover {
+            fill: var(--coral);
+            transform: scale(1.05);
+        }
+
+        .diagram-label {
+            position: absolute;
+            background: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .diagram-part:hover + .diagram-label {
+            opacity: 1;
+        }
+
+        /* Food Chain Builder */
+        .food-chain-builder {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .organisms-pool {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--bg-mint);
+            border-radius: 15px;
+        }
+
+        .organism {
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            cursor: grab;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .organism:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .chain-slot {
+            min-height: 60px;
+            border: 2px dashed var(--accent);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .chain-slot.filled {
+            border-style: solid;
+            background: var(--bg-mint);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showSection('home'); return false;">
+                <i class="fas fa-dna"></i>
+                NMT Biology 2026
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="showSection('home'); return false;"><i class="fas fa-home"></i> Головна</a></li>
+                <li><a onclick="showSection('cell'); return false;"><i class="fas fa-microscope"></i> Клітина</a></li>
+                <li><a onclick="showSection('genetics'); return false;"><i class="fas fa-dna"></i> Генетика</a></li>
+                <li><a onclick="showSection('biodiversity'); return false;"><i class="fas fa-leaf"></i> Біорізноманіття</a></li>
+                <li><a onclick="showSection('human'); return false;"><i class="fas fa-heartbeat"></i> Людина</a></li>
+                <li><a onclick="showSection('ecology'); return false;"><i class="fas fa-globe-americas"></i> Екологія</a></li>
+                <li><a onclick="showSection('fulltest'); return false;"><i class="fas fa-clipboard-check"></i> Тест НМТ</a></li>
+                <li><a onclick="showSection('tips'); return false;"><i class="fas fa-lightbulb"></i> Поради</a></li>
+                <li><a onclick="showSection('profile'); return false;"><i class="fas fa-user"></i> Профіль</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Твій шлях до 200 балів починається з клітини! 🧬</h1>
+                    <p>Повноцінна підготовка до НМТ з біології 2026. Формат: 30 завдань, 60 хвилин, максимум 46 балів.</p>
+                    
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="number" id="days">00</span>
+                            <span class="label">Днів</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number" id="hours">00</span>
+                            <span class="label">Годин</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number" id="minutes">00</span>
+                            <span class="label">Хвилин</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="number" id="seconds">00</span>
+                            <span class="label">Секунд</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="showSection('fulltest')">
+                            <i class="fas fa-play"></i> Почати тест НМТ
+                        </button>
+                        <button class="btn btn-secondary" onclick="showSection('cell')">
+                            <i class="fas fa-book"></i> Вивчити теорію
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <h2 class="section-title">5 модулів програми НМТ 2026</h2>
+                <p class="section-subtitle">Обери розділ для вивчення або практики</p>
+
+                <div class="cards-grid">
+                    <div class="card" onclick="showSection('cell')">
+                        <div class="card-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>1. Клітина та хімічний склад</h3>
+                        <p>Органели, мембрани, фотосинтез, дихання, синтез білка, генетичний код</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-flask"></i> 6 тем</span>
+                            <span><i class="fas fa-clock"></i> ~15 хв</span>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="showSection('genetics')">
+                        <div class="card-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h3>2. Генетика</h3>
+                        <p>Закони Менделя, схрещування, типи спадковості, мутації, аналіз родоводів</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-calculator"></i> Задачі</span>
+                            <span><i class="fas fa-clock"></i> ~20 хв</span>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="showSection('biodiversity')">
+                        <div class="card-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>3. Біорізноманіття</h3>
+                        <p>Віруси, бактерії, гриби, рослини, тварини — будова та життєві цикли</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-bug"></i> 23 теми</span>
+                            <span><i class="fas fa-clock"></i> ~25 хв</span>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="showSection('human')">
+                        <div class="card-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>4. Організм людини</h3>
+                        <p>Системи органів, тканини, гормони, гомеостаз, здоров'я</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-user-md"></i> 9 систем</span>
+                            <span><i class="fas fa-clock"></i> ~20 хв</span>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="showSection('ecology')">
+                        <div class="card-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>5. Екологія та еволюція</h3>
+                        <p>Харчові ланцюги, колообіги, еволюція, природний відбір, адаптації</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-recycle"></i> 8 тем</span>
+                            <span><i class="fas fa-clock"></i> ~15 хв</span>
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="showSection('fulltest')">
+                        <div class="card-icon" style="background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Повний тест НМТ</h3>
+                        <p>30 завдань у форматі реального НМТ 2026 з таймером та перевіркою</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-tasks"></i> 30 завдань</span>
+                            <span><i class="fas fa-clock"></i> 60 хв</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <div>
+                            <h3>Твій прогрес підготовки</h3>
+                            <p style="color: var(--text-light);">Виконуй тести, щоб бачити статистику</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="showSection('profile')">
+                            <i class="fas fa-chart-line"></i> Детальніше
+                        </button>
+                    </div>
+                    
+                    <div class="progress-bar-container">
+                        <div class="progress-label">
+                            <span><i class="fas fa-microscope"></i> Клітина та хімічний склад</span>
+                            <span id="progress-cell">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="bar-cell" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-label">
+                            <span><i class="fas fa-dna"></i> Генетика</span>
+                            <span id="progress-genetics">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="bar-genetics" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-label">
+                            <span><i class="fas fa-leaf"></i> Біорізноманіття</span>
+                            <span id="progress-biodiversity">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="bar-biodiversity" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-label">
+                            <span><i class="fas fa-heartbeat"></i> Організм людини</span>
+                            <span id="progress-human">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="bar-human" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-label">
+                            <span><i class="fas fa-globe-americas"></i> Екологія та еволюція</span>
+                            <span id="progress-ecology">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="bar-ecology" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CELL MODULE -->
+        <section id="cell" class="section">
+            <div class="module-container">
+                <div class="module-header">
+                    <h2><i class="fas fa-microscope"></i> Модуль 1: Клітина та хімічний склад живого</h2>
+                    <p>Органели, обмін речовин, реалізація спадкової інформації</p>
+                </div>
+
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Хімічний склад клітини</h3>
+                            <i class="fas fa-atom icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Неорганічні речовини (вода, мінеральні солі)</li>
+                                <li>Органічні речовини: вуглеводи, ліпіди, білки</li>
+                                <li>Нуклеїнові кислоти (ДНК, РНК)</li>
+                                <li>АТФ — енергетична "валюта" клітини</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('cell-chemistry')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                                <button class="btn btn-primary" onclick="showTheory('cell-chemistry')">
+                                    <i class="fas fa-book"></i> Теорія
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Будова клітини</h3>
+                            <i class="fas fa-microscope icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Мембрана: будова, транспорт, типи</li>
+                                <li>Цитоплазма та цитоскелет</li>
+                                <li>Органели: мітохондрії, рибосоми, ЕПР, апарат Гольджі</li>
+                                <li>Ядро: хромосоми, нуклеолус, ядерна оболонка</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('cell-structure')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                                <button class="btn btn-primary" onclick="showCellDiagram()">
+                                    <i class="fas fa-image"></i> Схема
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Фотосинтез та дихання</h3>
+                            <i class="fas fa-sun icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Фотосинтез: світлова та темнова фази</li>
+                                <li>Хемосинтез (у бактерій)</li>
+                                <li>Анаеробне дихання (гліколіз)</li>
+                                <li>Аеробне дихання (Кребс, ланцюг перенесення е-)</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('cell-energy')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                                <button class="btn btn-primary" onclick="showEnergyProcesses()">
+                                    <i class="fas fa-sync"></i> Процеси
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Реалізація спадкової інформації</h3>
+                            <i class="fas fa-dna icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Реплікація ДНК</li>
+                                <li>Транскрипція (синтез мРНК)</li>
+                                <li>Трансляція (синтез білка)</li>
+                                <li>Генетичний код, кодони, антикодони</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('cell-genetics')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                                <button class="btn btn-primary" onclick="showProteinSynthesis()">
+                                    <i class="fas fa-project-diagram"></i> Схема
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-diagram hidden" id="cellDiagram">
+                    <h3>Інтерактивна схема будови клітини</h3>
+                    <p>Наведи курсор на частини клітини, щоб побачити назву та функцію</p>
+                    <div class="diagram-container">
+                        <svg viewBox="0 0 400 300" style="max-width: 100%; height: auto;">
+                            <!-- Клітина -->
+                            <ellipse cx="200" cy="150" rx="180" ry="130" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+                            
+                            <!-- Ядро -->
+                            <circle cx="200" cy="150" r="50" fill="#d1fae5" stroke="#059669" stroke-width="2" class="diagram-part" data-name="Ядро — містить ДНК, керує клітиною"/>
+                            <circle cx="200" cy="150" r="15" fill="#059669" class="diagram-part" data-name="Нуклеолус — синтез рРНК"/>
+                            
+                            <!-- Мітохондрії -->
+                            <ellipse cx="120" cy="100" rx="25" ry="15" fill="#fde68a" stroke="#d97706" stroke-width="2" class="diagram-part" data-name="Мітохондрія — енергетична станція (АТФ)"/>
+                            <ellipse cx="280" cy="200" rx="25" ry="15" fill="#fde68a" stroke="#d97706" stroke-width="2" class="diagram-part" data-name="Мітохондрія — дихання, Кребсів цикл"/>
+                            
+                            <!-- Рибосоми -->
+                            <circle cx="150" cy="180" r="8" fill="#fbbf24" class="diagram-part" data-name="Рибосома — синтез білка"/>
+                            <circle cx="250" cy="120" r="8" fill="#fbbf24" class="diagram-part" data-name="Рибосома — трансляція"/>
+                            
+                            <!-- ЕПР -->
+                            <path d="M 100 150 Q 80 120 100 100 Q 120 120 100 150" fill="#a7f3d0" stroke="#059669" stroke-width="2" class="diagram-part" data-name="ЕПР — синтез ліпідів та білків"/>
+                            
+                            <!-- Апарат Гольджі -->
+                            <path d="M 280 120 Q 300 140 280 160 Q 260 140 280 120" fill="#c7d2fe" stroke="#4f46e5" stroke-width="2" class="diagram-part" data-name="Апарат Гольджі — модифікація білків"/>
+                            
+                            <!-- Лізосома -->
+                            <circle cx="320" cy="150" r="12" fill="#fecaca" stroke="#dc2626" stroke-width="2" class="diagram-part" data-name="Лізосома — травлення, аутоліз"/>
+                            
+                            <!-- Мембрана -->
+                            <ellipse cx="200" cy="150" rx="175" ry="125" fill="none" stroke="#14b8a6" stroke-width="4" stroke-dasharray="5,5" class="diagram-part" data-name="Плазматична мембрана — вибіркова проникність"/>
+                        </svg>
+                    </div>
+                    <div id="diagramInfo" style="margin-top: 1rem; padding: 1rem; background: var(--bg-mint); border-radius: 10px; min-height: 50px; font-weight: 600; color: var(--primary);">
+                        Наведіть курсор на органелу
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENETICS MODULE -->
+        <section id="genetics" class="section">
+            <div class="module-container">
+                <div class="module-header">
+                    <h2><i class="fas fa-dna"></i> Модуль 2: Генетика</h2>
+                    <p>Закони Менделя, типи схрещування, генетичні задачі</p>
+                </div>
+
+                <div class="genetics-calculator">
+                    <h3><i class="fas fa-calculator"></i> Генетичний калькулятор (моногібридне схрещування)</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="input-group">
+                            <label>Генотип батьківської особини 1 (AA, Aa, aa):</label>
+                            <input type="text" id="parent1" placeholder="Aa" maxlength="2">
+                        </div>
+                        <div class="input-group">
+                            <label>Генотип батьківської особини 2 (AA, Aa, aa):</label>
+                            <input type="text" id="parent2" placeholder="Aa" maxlength="2">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="calculatePunnett()" style="margin-top: 1.5rem; width: 100%;">
+                        <i class="fas fa-calculator"></i> Розрахувати схрещування
+                    </button>
+                    
+                    <div id="punnettResult" style="display: none; margin-top: 2rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Схема Пеннета:</h4>
+                        <div class="punnett-square" id="punnettGrid"></div>
+                        <div id="geneticAnalysis" style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-mint); border-radius: 10px;"></div>
+                    </div>
+                </div>
+
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Закони Менделя</h3>
+                            <i class="fas fa-balance-scale icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Закон однорідності гібридів F1</li>
+                                <li>Закон розщеплення ознак (3:1)</li>
+                                <li>Закон незалежного комбінування (9:3:3:1)</li>
+                                <li>Цитологічні основи законів</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('mendel-laws')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Типи схрещування</h3>
+                            <i class="fas fa-project-diagram icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Моногібридне (1 ознака)</li>
+                                <li>Дигібридне (2 ознаки)</li>
+                                <li>Аналізуюче (рецесивний гомозигота)</li>
+                                <li>Зворотне схрещування</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('crossing-types')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Взаємодія генів</h3>
+                            <i class="fas fa-link icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Повне домінування</li>
+                                <li>Неповне домінування (інтермедіарність)</li>
+                                <li>Кодомінування (групи крові)</li>
+                                <li>Полімерія, епістаз, плейотропія</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('gene-interaction')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h3>Мутації та мінливість</h3>
+                            <i class="fas fa-random icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Генні мутації (заміна, делеція, інсерція)</li>
+                                <li>Хромосомні мутації</li>
+                                <li>Комбінативна мінливість</li>
+                                <li>Модифікаційна мінливість</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('mutations')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIODIVERSITY MODULE -->
+        <section id="biodiversity" class="section">
+            <div class="module-container">
+                <div class="module-header">
+                    <h2><i class="fas fa-leaf"></i> Модуль 3: Біорізноманіття</h2>
+                    <p>Віруси, бактерії, гриби, рослини, тварини</p>
+                </div>
+
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <div class="topic-header" style="background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);">
+                            <h3>Віруси та бактерії</h3>
+                            <i class="fas fa-virus icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Віруси: будова, розмноження, хвороби</li>
+                                <li>Віроїди та пріони</li>
+                                <li>Бактерії: будова, оболонки</li>
+                                <li>Живлення бактерій, розмноження</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('viruses-bacteria')">
+                                    <i class="fas fa-play"></i> Тест
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header" style="background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%);">
+                            <h3>Гриби та водорості</h3>
+                            <i class="fas fa-mushroom icon"></i>
+                        </div>
+                        <div class="topic-content">
+                            <ul class="subtopic-list">
+                                <li>Цвілеві гриби (мікориза)</li>
+                                <li>Дріжджі (будова, розмноження)</li>
+                                <li>Шапинкові гриби</li>
+                                <li>Водорості: зелені, бурі, червоні, діатомові</li>
+                            </ul>
+                            <div class="topic-actions">
+                                <button class="btn btn-outline" onclick="startTopicTest('
